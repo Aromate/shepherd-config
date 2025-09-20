@@ -1,0 +1,26 @@
+# Shepherd runtime files
+*.log
+*.pid
+/run/
+
+# Guile compilation cache
+*.go
+*.cache/
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+/tmp/
