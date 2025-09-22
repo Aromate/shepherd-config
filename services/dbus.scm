@@ -11,17 +11,16 @@
                   "--session"
                   "--nofork"
                   "--nopidfile"
-                  "--print-pid=3"
-                  "--print-address=4")
+                  "--print-address"
+                  "--address"
+                  (string-append "unix:path=/var/run/user/"
+                                 (number->string (getuid))
+                                 "/dbus.socket,guid=4cea9d8ac254df38a80092ed68ce6fdb"))
             #:environment-variables
             (cons* (string-append "DISPLAY=" (or (getenv "DISPLAY") ":0"))
                    (default-environment-variables))
             #:log-file (string-append
                         (or (getenv "XDG_RUNTIME_DIR")
                             (string-append "/run/user/" (number->string (getuid))))
-                        "/shepherd/dbus.log")
-            #:pid-file-timeout 5)
+                        "/shepherd/dbus.log"))
    #:stop (make-kill-destructor)))
-
-;; Register the service
-(register-services (list dbus-service))

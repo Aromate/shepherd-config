@@ -1,12 +1,18 @@
 ;;; init.scm -- Shepherd configuration file
 
 (use-modules (shepherd service)
-             (shepherd support))
+             (shepherd support)
+             (ice-9 ftw))
+
+;; Get the configuration directory path
+(define config-dir
+  (dirname (current-filename)))
 
 ;; Load service definitions from services directory
-(for-each (lambda (file)
-            (load (string-append "services/" file)))
-          '("dbus.scm"))
+(load (string-append config-dir "/services/dbus.scm"))
+
+;; Register all services
+(register-services (list dbus-service))
 
 ;; Send shepherd into the background
 (perform-service-action root-service 'daemonize)
