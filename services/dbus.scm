@@ -2,7 +2,7 @@
 
 (define dbus-service
   (service
-   '(dbus-session)
+   '(dbus)
    #:documentation "D-Bus session message bus"
    #:requirement '()
    #:respawn? #t

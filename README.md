@@ -25,12 +25,12 @@ Check service status:
 
 ```bash
 herd status
-herd status dbus-session
+herd status dbus
 ```
 
 ## Services
 
-### D-Bus Session
+### D-Bus
 - Manages the D-Bus session bus
 - Auto-restarts on failure
 - Logs to `$XDG_RUNTIME_DIR/shepherd/dbus.log`

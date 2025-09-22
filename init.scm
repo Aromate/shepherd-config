@@ -18,4 +18,4 @@
 (perform-service-action root-service 'daemonize)
 
 ;; Services to start when shepherd starts
-(start-in-the-background '(dbus-session))
+(start-in-the-background '(dbus))
